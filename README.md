@@ -1,6 +1,6 @@
 [![NPM version](https://img.shields.io/npm/v/typescript-starter.svg)](https://www.npmjs.com/package/typescript-starter)
 [![Codecov](https://img.shields.io/codecov/c/github/tankerxyz/three.signal-line.svg)](https://codecov.io/gh/tankerxyz/three.signal-line)
-[![CircleCI](https://img.shields.io/circleci/project/github/tankerxyz/three.signal-line.svg)](https://circleci.com/gh/tankerxyz/three.signal-line)
+[![CircleCI](https://img.shields.io/circleci/project/github/Tankerxyz/three.signal-line/master.svg)](https://circleci.com/gh/Tankerxyz/three.signal-line/tree/master)
 [![GitHub stars](https://img.shields.io/github/stars/tankerxyz/three.signal-line.svg?style=social&logo=github&label=Stars)](https://github.com/tankerxyz/three.signal-line)
 
 # three.signal-line
