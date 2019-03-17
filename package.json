@@ -16,7 +16,7 @@
     "fix": "run-s fix:*",
     "fix:prettier": "prettier \"src/**/*.ts\" --write",
     "fix:tslint": "tslint --fix --project .",
-    "test": "run-s build test:lint:*",
+    "test": "run-s build test:unit test:lint:*",
     "test:lint:typescript": "tslint --project .",
     "test:lint:prettier": "prettier \"src/**/*.ts\" --list-different || exit 0",
     "test:unit": "nyc --silent ava",
