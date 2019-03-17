@@ -5,6 +5,7 @@ src/**.js
 .idea/*
 
 coverage
+.codecov.yml
 .nyc_output
 *.log
 
