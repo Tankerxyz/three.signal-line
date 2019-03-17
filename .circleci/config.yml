@@ -4,7 +4,7 @@ jobs:
   'node-8':
     docker:
       - image: circleci/node:8
-    working_directory: ~/typescript-starter
+    working_directory: ~/three.signal-line
     steps:
       - checkout
       # Download and cache dependencies
@@ -24,7 +24,7 @@ jobs:
   'node-latest':
     docker:
       - image: circleci/node:latest
-    working_directory: ~/typescript-starter
+    working_directory: ~/three.signal-line
     steps:
       - checkout
       - restore_cache:
