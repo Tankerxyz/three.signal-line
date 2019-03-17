@@ -20,7 +20,9 @@
  * @anotherNote   Some other value.
  */
 export function double(value: number): number {
-  return value * 2;
+  const n = 2;
+
+  return value * n;
 }
 
 /**
