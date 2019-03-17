@@ -15,6 +15,8 @@
  * (This definition was primarily extracted from:
  * https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/types/node/v8/index.d.ts
  */
+
+/*
 declare module 'sha.js' {
   export default function shaJs(algorithm: string): Hash;
 
@@ -32,3 +34,4 @@ declare module 'sha.js' {
     // tslint:enable:no-method-signature
   }
 }
+*/
