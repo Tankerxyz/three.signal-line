@@ -7,6 +7,10 @@
 
 library for three.js which using for creating-lines, sending signals (particles) on lines, adding labels on lines, ability to interact with lines (hovering, selecting), adding Controller for using many lines and for easy working with that lines.
 
+# Documentation
+You can find the documentation on the [website](https://tankerxyz.github.io/three.signal-line).
+
+
 # Features
 
 * Write **standard, future javascript** – with stable ESNext features – today ([stage 3](https://github.com/tc39/proposals) or [finished](https://github.com/tc39/proposals/blob/master/finished-proposals.md) features)
