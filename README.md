@@ -1,3 +1,10 @@
+# !Archived! because the author didn't find any good reasons for publishing this library.
+You can see what the author wanted to publish as a library in this demo.
+
+Yes, it's beautiful, but not needed for the open-source community.
+
+----
+
 [![NPM version](https://img.shields.io/npm/v/typescript-starter.svg)](https://www.npmjs.com/package/typescript-starter)
 [![Codecov](https://img.shields.io/codecov/c/github/tankerxyz/three.signal-line.svg)](https://codecov.io/gh/tankerxyz/three.signal-line)
 [![CircleCI](https://img.shields.io/circleci/project/github/Tankerxyz/three.signal-line/master.svg)](https://circleci.com/gh/Tankerxyz/three.signal-line/tree/master)
