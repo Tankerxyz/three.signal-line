@@ -1,5 +1,5 @@
 # !Archived! because the author didn't find any good reasons for publishing this library.
-You can see what the author wanted to publish as a library in this demo.
+You can see what the author wanted to publish as a library in this [demo](https://91j305om4.codesandbox.io).
 
 Yes, it's beautiful, but not needed for the open-source community.
 
