@@ -2,5 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.1.0"></a>
+# [1.1.0](https://github.com/Tankerxyz/three.signal-line/compare/v1.0.1...v1.1.0) (2023-05-16)
+
+
+### Features
+
+* added Signal Line source code without docs ([9d64e89](https://github.com/Tankerxyz/three.signal-line/commit/9d64e89))
+* added SignalLine, Signal, Label source code without docs ([cc3f380](https://github.com/Tankerxyz/three.signal-line/commit/cc3f380))
+
+
+
 <a name="1.0.1"></a>
 ## 1.0.1 (2019-03-17)
