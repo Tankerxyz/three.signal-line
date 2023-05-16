@@ -6,10 +6,27 @@ import { Signal } from "./signal";
 
 
 /**
- * Represents a Signal Line.
- * @constructor
- * @param{SignalLineOptions} options - The options for signalLine.
- * @param{THREE.Scene} scene - Three.js Scene object.
+ * /**
+ * Represents a Signal Line constructor class.
+ *
+ * ### Example (es module)
+ * ```js
+ * import SignalLine from '@tankerxyz/SignalLine'
+ * console.log(SignalLine.getLineLength());
+ * // => 8
+ * ```
+ *
+ * ### Example (commonjs)
+ * ```js
+ * var SignalLine = require('@tankerxyz/SignalLine');
+ * console.log(SignalLine.getLineLength());
+ * // => 8
+ * ```
+ *
+ * @constructor{HelloWorld} descriptin constructor
+ * @param{HelloWorld} description param
+ * @returns       Returns the length of vertices geometry from line.
+ * @anotherNote   uses for condition for calculating.
  */
 export default class SignalLine {
   public static defaultOptions = {
