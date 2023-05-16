@@ -21,7 +21,7 @@
     "readonly-keyword": false,
     "readonly-array": false,
 //    "no-let": true,
-    "no-object-mutation": true,
+    "no-object-mutation": false,
     "no-delete": true,
     "no-method-signature": true,
 
