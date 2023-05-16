@@ -52,7 +52,9 @@
     "node": ">=8.9"
   },
   "dependencies": {
-    "three": "^0.152.2"
+    "three": "^0.152.2",
+    "three.meshline": "^1.4.0",
+    "three.text": "github:Tankerxyz/THREE.Text"
   },
   "devDependencies": {
     "ava": "1.0.0-beta.7",
