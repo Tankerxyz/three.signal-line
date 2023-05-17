@@ -47,7 +47,7 @@ yarn add three.signal-line
 To use Three.Signal-Line, you need to have Three.js already set up in your project. Once you have imported the required dependencies, you can create a signal line by providing the necessary options and a line geometry:
 
 ```javascript
-import SignalLine from 'three.signal-line';
+import { SignalLine } from 'three.signal-line';
 
 // Create a Three.js scene
 const scene = new THREE.Scene();
