@@ -120,22 +120,22 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Label<span class="tsd-signature-symbol">(</span>options<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, lineGeometry<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="label.html" class="tsd-signature-type">Label</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Label<span class="tsd-signature-symbol">(</span>options<span class="tsd-signature-symbol">: </span><a href="../interfaces/labeloptions.html" class="tsd-signature-type">LabelOptions</a>, lineGeometry<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">THREE.Geometry</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="label.html" class="tsd-signature-type">Label</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Tankerxyz/three.signal-line/blob/82a29c9/src/lib/label.ts#L30">lib/label.ts:30</a></li>
+									<li>Defined in <a href="https://github.com/Tankerxyz/three.signal-line/blob/3ba365b/src/lib/label.ts#L58">lib/label.ts:58</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>options: <span class="tsd-signature-type">any</span></h5>
+									<h5>options: <a href="../interfaces/labeloptions.html" class="tsd-signature-type">LabelOptions</a></h5>
 								</li>
 								<li>
-									<h5>lineGeometry: <span class="tsd-signature-type">any</span></h5>
+									<h5>lineGeometry: <span class="tsd-signature-type">THREE.Geometry</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="label.html" class="tsd-signature-type">Label</a></h4>
@@ -148,20 +148,20 @@
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
 					<a name="linegeometry" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagPrivate">Private</span> line<wbr>Geometry</h3>
-					<div class="tsd-signature tsd-kind-icon">line<wbr>Geometry<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
+					<div class="tsd-signature tsd-kind-icon">line<wbr>Geometry<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">THREE.Geometry</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Tankerxyz/three.signal-line/blob/82a29c9/src/lib/label.ts#L28">lib/label.ts:28</a></li>
+							<li>Defined in <a href="https://github.com/Tankerxyz/three.signal-line/blob/3ba365b/src/lib/label.ts#L48">lib/label.ts:48</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
 					<a name="options" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagPrivate">Private</span> options</h3>
-					<div class="tsd-signature tsd-kind-icon">options<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
+					<div class="tsd-signature tsd-kind-icon">options<span class="tsd-signature-symbol">:</span> <a href="../interfaces/labeloptions.html" class="tsd-signature-type">LabelOptions</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Tankerxyz/three.signal-line/blob/82a29c9/src/lib/label.ts#L29">lib/label.ts:29</a></li>
+							<li>Defined in <a href="https://github.com/Tankerxyz/three.signal-line/blob/3ba365b/src/lib/label.ts#L53">lib/label.ts:53</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -171,7 +171,7 @@
 					<div class="tsd-signature tsd-kind-icon">text<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">THREE.DText</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Tankerxyz/three.signal-line/blob/82a29c9/src/lib/label.ts#L30">lib/label.ts:30</a></li>
+							<li>Defined in <a href="https://github.com/Tankerxyz/three.signal-line/blob/3ba365b/src/lib/label.ts#L58">lib/label.ts:58</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -188,7 +188,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Tankerxyz/three.signal-line/blob/82a29c9/src/lib/label.ts#L146">lib/label.ts:146</a></li>
+									<li>Defined in <a href="https://github.com/Tankerxyz/three.signal-line/blob/3ba365b/src/lib/label.ts#L204">lib/label.ts:204</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -199,16 +199,17 @@
 					<a name="getlabelpositionpoint" class="tsd-anchor"></a>
 					<h3>get<wbr>Label<wbr>Position<wbr>Point</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Label<wbr>Position<wbr>Point<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Label<wbr>Position<wbr>Point<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">THREE.Vector3</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Tankerxyz/three.signal-line/blob/82a29c9/src/lib/label.ts#L99">lib/label.ts:99</a></li>
+									<li>Defined in <a href="https://github.com/Tankerxyz/three.signal-line/blob/3ba365b/src/lib/label.ts#L139">lib/label.ts:139</a></li>
 								</ul>
 							</aside>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">THREE.Vector3</span></h4>
+							<p>The position point of the label</p>
 						</li>
 					</ul>
 				</section>
@@ -222,7 +223,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Tankerxyz/three.signal-line/blob/82a29c9/src/lib/label.ts#L48">lib/label.ts:48</a></li>
+									<li>Defined in <a href="https://github.com/Tankerxyz/three.signal-line/blob/3ba365b/src/lib/label.ts#L84">lib/label.ts:84</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -239,7 +240,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Tankerxyz/three.signal-line/blob/82a29c9/src/lib/label.ts#L115">lib/label.ts:115</a></li>
+									<li>Defined in <a href="https://github.com/Tankerxyz/three.signal-line/blob/3ba365b/src/lib/label.ts#L158">lib/label.ts:158</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -256,7 +257,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Tankerxyz/three.signal-line/blob/82a29c9/src/lib/label.ts#L131">lib/label.ts:131</a></li>
+									<li>Defined in <a href="https://github.com/Tankerxyz/three.signal-line/blob/3ba365b/src/lib/label.ts#L178">lib/label.ts:178</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -273,19 +274,19 @@
 					<a name="setsize" class="tsd-anchor"></a>
 					<h3>set<wbr>Size</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">set<wbr>Size<span class="tsd-signature-symbol">(</span>size<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">set<wbr>Size<span class="tsd-signature-symbol">(</span>size<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Tankerxyz/three.signal-line/blob/82a29c9/src/lib/label.ts#L141">lib/label.ts:141</a></li>
+									<li>Defined in <a href="https://github.com/Tankerxyz/three.signal-line/blob/3ba365b/src/lib/label.ts#L196">lib/label.ts:196</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>size: <span class="tsd-signature-type">any</span></h5>
+									<h5>size: <span class="tsd-signature-type">number</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -296,19 +297,19 @@
 					<a name="settext" class="tsd-anchor"></a>
 					<h3>set<wbr>Text</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">set<wbr>Text<span class="tsd-signature-symbol">(</span>text<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">set<wbr>Text<span class="tsd-signature-symbol">(</span>text<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Tankerxyz/three.signal-line/blob/82a29c9/src/lib/label.ts#L136">lib/label.ts:136</a></li>
+									<li>Defined in <a href="https://github.com/Tankerxyz/three.signal-line/blob/3ba365b/src/lib/label.ts#L187">lib/label.ts:187</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>text: <span class="tsd-signature-type">any</span></h5>
+									<h5>text: <span class="tsd-signature-type">string</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -325,7 +326,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Tankerxyz/three.signal-line/blob/82a29c9/src/lib/label.ts#L152">lib/label.ts:152</a></li>
+									<li>Defined in <a href="https://github.com/Tankerxyz/three.signal-line/blob/3ba365b/src/lib/label.ts#L213">lib/label.ts:213</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -341,7 +342,7 @@
 					<div class="tsd-signature tsd-kind-icon">default<wbr>Options<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Tankerxyz/three.signal-line/blob/82a29c9/src/lib/label.ts#L15">lib/label.ts:15</a></li>
+							<li>Defined in <a href="https://github.com/Tankerxyz/three.signal-line/blob/3ba365b/src/lib/label.ts#L31">lib/label.ts:31</a></li>
 						</ul>
 					</aside>
 					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
@@ -350,17 +351,27 @@
 						<div class="tsd-signature tsd-kind-icon">camera<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> =&nbsp;null</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/Tankerxyz/three.signal-line/blob/82a29c9/src/lib/label.ts#L24">lib/label.ts:24</a></li>
+								<li>Defined in <a href="https://github.com/Tankerxyz/three.signal-line/blob/3ba365b/src/lib/label.ts#L41">lib/label.ts:41</a></li>
+							</ul>
+						</aside>
+					</section>
+					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
+						<a name="defaultoptions.linetype" class="tsd-anchor"></a>
+						<h3>line<wbr>Type</h3>
+						<div class="tsd-signature tsd-kind-icon">line<wbr>Type<span class="tsd-signature-symbol">:</span> <a href="../enums/line_type.html#normal" class="tsd-signature-type">NORMAL</a><span class="tsd-signature-symbol"> =&nbsp;LINE_TYPE.NORMAL</span></div>
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/Tankerxyz/three.signal-line/blob/3ba365b/src/lib/label.ts#L38">lib/label.ts:38</a></li>
 							</ul>
 						</aside>
 					</section>
 					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
 						<a name="defaultoptions.position" class="tsd-anchor"></a>
 						<h3>position</h3>
-						<div class="tsd-signature tsd-kind-icon">position<span class="tsd-signature-symbol">:</span> <a href="../enums/position.html" class="tsd-signature-type">POSITION</a><span class="tsd-signature-symbol"> =&nbsp;POSITION.CENTER</span></div>
+						<div class="tsd-signature tsd-kind-icon">position<span class="tsd-signature-symbol">:</span> <a href="../enums/position.html#center" class="tsd-signature-type">CENTER</a><span class="tsd-signature-symbol"> =&nbsp;POSITION.CENTER</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/Tankerxyz/three.signal-line/blob/82a29c9/src/lib/label.ts#L25">lib/label.ts:25</a></li>
+								<li>Defined in <a href="https://github.com/Tankerxyz/three.signal-line/blob/3ba365b/src/lib/label.ts#L42">lib/label.ts:42</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -370,7 +381,7 @@
 						<div class="tsd-signature tsd-kind-icon">position<wbr>OffsetY<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;2</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/Tankerxyz/three.signal-line/blob/82a29c9/src/lib/label.ts#L22">lib/label.ts:22</a></li>
+								<li>Defined in <a href="https://github.com/Tankerxyz/three.signal-line/blob/3ba365b/src/lib/label.ts#L39">lib/label.ts:39</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -380,7 +391,7 @@
 						<div class="tsd-signature tsd-kind-icon">rotation<wbr>OffsetY<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> =&nbsp;null</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/Tankerxyz/three.signal-line/blob/82a29c9/src/lib/label.ts#L23">lib/label.ts:23</a></li>
+								<li>Defined in <a href="https://github.com/Tankerxyz/three.signal-line/blob/3ba365b/src/lib/label.ts#L40">lib/label.ts:40</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -390,16 +401,16 @@
 						<div class="tsd-signature tsd-kind-icon">text<wbr>Options<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/Tankerxyz/three.signal-line/blob/82a29c9/src/lib/label.ts#L16">lib/label.ts:16</a></li>
+								<li>Defined in <a href="https://github.com/Tankerxyz/three.signal-line/blob/3ba365b/src/lib/label.ts#L32">lib/label.ts:32</a></li>
 							</ul>
 						</aside>
 						<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
 							<a name="defaultoptions.textoptions._3d" class="tsd-anchor"></a>
 							<h3>_3d</h3>
-							<div class="tsd-signature tsd-kind-icon">_3d<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;false</span></div>
+							<div class="tsd-signature tsd-kind-icon">_3d<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> =&nbsp;false</span></div>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Tankerxyz/three.signal-line/blob/82a29c9/src/lib/label.ts#L20">lib/label.ts:20</a></li>
+									<li>Defined in <a href="https://github.com/Tankerxyz/three.signal-line/blob/3ba365b/src/lib/label.ts#L36">lib/label.ts:36</a></li>
 								</ul>
 							</aside>
 						</section>
@@ -409,7 +420,7 @@
 							<div class="tsd-signature tsd-kind-icon">color<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;red&quot;</span></div>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Tankerxyz/three.signal-line/blob/82a29c9/src/lib/label.ts#L17">lib/label.ts:17</a></li>
+									<li>Defined in <a href="https://github.com/Tankerxyz/three.signal-line/blob/3ba365b/src/lib/label.ts#L33">lib/label.ts:33</a></li>
 								</ul>
 							</aside>
 						</section>
@@ -419,7 +430,7 @@
 							<div class="tsd-signature tsd-kind-icon">size<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;5</span></div>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Tankerxyz/three.signal-line/blob/82a29c9/src/lib/label.ts#L19">lib/label.ts:19</a></li>
+									<li>Defined in <a href="https://github.com/Tankerxyz/three.signal-line/blob/3ba365b/src/lib/label.ts#L35">lib/label.ts:35</a></li>
 								</ul>
 							</aside>
 						</section>
@@ -429,7 +440,7 @@
 							<div class="tsd-signature tsd-kind-icon">text<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;label&quot;</span></div>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Tankerxyz/three.signal-line/blob/82a29c9/src/lib/label.ts#L18">lib/label.ts:18</a></li>
+									<li>Defined in <a href="https://github.com/Tankerxyz/three.signal-line/blob/3ba365b/src/lib/label.ts#L34">lib/label.ts:34</a></li>
 								</ul>
 							</aside>
 						</section>
@@ -506,6 +517,18 @@
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="signalline.html" class="tsd-kind-icon">Signal<wbr>Line</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="../interfaces/labeloptions.html" class="tsd-kind-icon">Label<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-is-not-exported">
+						<a href="../interfaces/signallineoptions.html" class="tsd-kind-icon">Signal<wbr>Line<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="../interfaces/signaloptions.html" class="tsd-kind-icon">Signal<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="../interfaces/signaluniforms.html" class="tsd-kind-icon">Signal<wbr>Uniforms</a>
 					</li>
 					<li class=" tsd-kind-variable">
 						<a href="../globals.html#defaultfragmentshader" class="tsd-kind-icon">default<wbr>Fragment<wbr>Shader</a>

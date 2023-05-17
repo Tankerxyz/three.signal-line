@@ -64,36 +64,80 @@
 	<div class="row">
 		<div class="col-8 col-content">
 			<div class="tsd-panel tsd-typography">
-				<h1 id="-archived-because-the-author-didn-t-find-any-good-reasons-for-publishing-this-library-">!Archived! because the author didn&#39;t find any good reasons for publishing this library.</h1>
-				<p>You can see what the author wanted to publish as a library in this <a href="https://j36nl7zoow.csb.app/">demo</a>.</p>
-				<p>Yes, it&#39;s beautiful, but not needed for the open-source community.</p>
 				<hr>
-				<p><a href="https://www.npmjs.com/package/typescript-starter"><img src="https://img.shields.io/npm/v/typescript-starter.svg" alt="NPM version"></a>
+				<p><a href="https://www.npmjs.com/package/three.signal-line"><img src="https://img.shields.io/npm/v/typescript-starter.svg" alt="NPM version"></a>
 					<a href="https://codecov.io/gh/tankerxyz/three.signal-line"><img src="https://img.shields.io/codecov/c/github/tankerxyz/three.signal-line.svg" alt="Codecov"></a>
 					<a href="https://circleci.com/gh/Tankerxyz/three.signal-line/tree/master"><img src="https://img.shields.io/circleci/project/github/Tankerxyz/three.signal-line/master.svg" alt="CircleCI"></a>
 				<a href="https://github.com/tankerxyz/three.signal-line"><img src="https://img.shields.io/github/stars/tankerxyz/three.signal-line.svg?style=social&logo=github&label=Stars" alt="GitHub stars"></a></p>
-				<h1 id="three-signal-line">three.signal-line</h1>
-				<p>library for three.js which using for creating-lines, sending signals (particles) on lines, adding labels on lines, ability to interact with lines (hovering, selecting), adding Controller for using many lines and for easy working with that lines.</p>
-				<h1 id="documentation">Documentation</h1>
-				<p>You can find the documentation on the <a href="https://tankerxyz.github.io/three.signal-line">website</a>.</p>
-				<h1 id="features">Features</h1>
+				<h1 id="three-signal-line">Three.Signal-Line</h1>
+				<p><a href="https://github.com/Tankerxyz/three.signal-line">Three.Signal-Line</a> is a JavaScript package that provides a signal line component for the popular 3D rendering library, Three.js. It allows you to create animated signal lines in your Three.js scenes with customizable colors, speeds, sizes, and more.</p>
+				<h2 id="features">Features</h2>
 				<ul>
-					<li>Write <strong>standard, future javascript</strong> – with stable ESNext features – today (<a href="https://github.com/tc39/proposals">stage 3</a> or <a href="https://github.com/tc39/proposals/blob/master/finished-proposals.md">finished</a> features)</li>
-					<li><a href="https://medium.freecodecamp.org/its-time-to-give-typescript-another-chance-2caaf7fabe61">Optionally use typescript</a> to improve tooling, linting, and documentation generation</li>
-					<li>Export as a <a href="http://jsmodules.io/">javascript module</a>, making your work <strong>fully tree-shakable</strong> for consumers capable of using <a href="https://github.com/rollup/rollup/wiki/pkg.module">es6 imports</a> (like <a href="http://rollupjs.org/">Rollup</a>, <a href="https://webpack.js.org/">Webpack</a>, or <a href="https://parceljs.org/">Parcel</a>)</li>
-					<li>Export type declarations to improve your downstream development experience</li>
+					<li><strong>Animated Signal Lines</strong>: Create visually appealing animated signal lines in your Three.js scenes.</li>
+					<li><strong>Customizable Options</strong>: Control the appearance and behavior of signal lines with customizable options such as color, speed, size, opacity, and texture.</li>
+					<li><strong>Backward Movement</strong>: Choose whether the signal lines move forward or backward along their paths.</li>
+					<li><strong>Texture Support</strong>: Apply textures to signal lines for enhanced visual effects.</li>
+					<li><strong>Smooth Animation</strong>: Signal lines smoothly transition between points, creating fluid animations.</li>
+					<li><strong>Easy Integration</strong>: The package integrates seamlessly with Three.js, making it easy to incorporate signal lines into your existing Three.js projects.</li>
+				</ul>
+				<h2 id="the-package-also-have-nice-some-things-">The package also have nice some things:</h2>
+				<ul>
 					<li>Backwards compatibility for Node.js-style (CommonJS) imports</li>
 					<li>Both strict and flexible <a href="config/tsconfig.json">typescript configurations</a> available</li>
-				</ul>
-				<p>So we can have nice things:</p>
-				<ul>
-					<li>Generate API documentation (HTML or JSON) <a href="https://blog.cloudflare.com/generating-documentation-for-typescript-projects/">without a mess of JSDoc tags</a> to maintain</li>
 					<li>Collocated, atomic, concurrent unit tests with <a href="https://github.com/avajs/ava">AVA</a></li>
 					<li>Source-mapped code coverage reports with <a href="https://github.com/istanbuljs/nyc">nyc</a></li>
 					<li>Configurable code coverage testing (for continuous integration)</li>
 					<li>Automatic linting and formatting using <a href="https://github.com/palantir/tslint">TSLint</a> and <a href="https://prettier.io/">Prettier</a></li>
 					<li>Automatically check for known vulnerabilities in your dependencies with <a href="https://github.com/nodesecurity/nsp"><code>nsp</code></a></li>
 				</ul>
+				<h2 id="installation">Installation</h2>
+				<p>You can install Three.Signal-Line via npm or yarn:</p>
+				<pre><code class="language-bash">npm install three.signal-line</code></pre>
+				<p>or</p>
+				<pre><code class="language-bash">yarn add three.signal-line</code></pre>
+				<h2 id="usage">Usage</h2>
+				<p>To use Three.Signal-Line, you need to have Three.js already set up in your project. Once you have imported the required dependencies, you can create a signal line by providing the necessary options and a line geometry:</p>
+				<pre><code class="language-javascript"><span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> THREE <span class="hljs-keyword">from</span> <span class="hljs-string">'three'</span>;
+<span class="hljs-keyword">import</span> { SignalLine } <span class="hljs-keyword">from</span> <span class="hljs-string">'three.signal-line'</span>;
+
+<span class="hljs-comment">// Create a line geometry for the signal line</span>
+<span class="hljs-keyword">const</span> lineGeometry = <span class="hljs-keyword">new</span> THREE.Geometry();
+lineGeometry.vertices.push(<span class="hljs-keyword">new</span> THREE.Vector3(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>));
+lineGeometry.vertices.push(<span class="hljs-keyword">new</span> THREE.Vector3(<span class="hljs-number">100</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>));
+
+<span class="hljs-comment">// Define the options for the signal line</span>
+<span class="hljs-keyword">const</span> options = {
+  <span class="hljs-attr">color</span>: <span class="hljs-string">'#ff0000'</span>,
+  <span class="hljs-attr">speed</span>: <span class="hljs-number">200</span>,
+  <span class="hljs-attr">size</span>: <span class="hljs-number">30</span>,
+  <span class="hljs-attr">backwardMoving</span>: <span class="hljs-literal">false</span>,
+  <span class="hljs-attr">opacity</span>: <span class="hljs-number">0.5</span>,
+  <span class="hljs-attr">particleTexture</span>: <span class="hljs-string">'path/to/texture.png'</span>,
+};
+
+<span class="hljs-comment">// Create a new signal line</span>
+<span class="hljs-keyword">const</span> signal = <span class="hljs-keyword">new</span> SignalLine(options, lineGeometry);
+
+<span class="hljs-comment">// Add the signal line to your Three.js scene</span>
+scene.add(signal.particleSystem);</code></pre>
+				<p>You can update the signal line&#39;s position by calling the <code>update</code> method in your animation loop:</p>
+				<pre><code class="language-javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">animate</span>(<span class="hljs-params"></span>) </span>{
+  requestAnimationFrame(animate);
+
+  <span class="hljs-comment">// Update the position of the signal line</span>
+  signal.update();
+
+  <span class="hljs-comment">// Render the scene</span>
+  renderer.render(scene, camera);
+}</code></pre>
+				<h2 id="documentation">Documentation</h2>
+				<p>You can find the full documentation on the <a href="https://tankerxyz.github.io/three.signal-line">website</a>.</p>
+				<h2 id="examples">Examples</h2>
+				<p>You can see full example in this <a href="https://j36nl7zoow.csb.app/">demo</a>.</p>
+				<p><img src="./example.gif" alt="Example"></p>
+				<p>or you can try to send it by yourself in another simple <a href="https://jp0zq82rry.csb.app/">demo</a>.</p>
+				<h2 id="conclusion">Conclusion</h2>
+				<p>With Three.Signal-Line, you can easily create animated signal lines to enhance the visual experience of your Three.js scenes. Whether you need to visualize data flows, create special effects, or add dynamic elements to your 3D environments, Three.Signal-Line provides a flexible and customizable solution. Explore the package documentation and examples to unleash your creativity and bring your Three.js projects to life with stunning signal lines.</p>
 			</div>
 		</div>
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
@@ -120,6 +164,18 @@
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="classes/signalline.html" class="tsd-kind-icon">Signal<wbr>Line</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/labeloptions.html" class="tsd-kind-icon">Label<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-is-not-exported">
+						<a href="interfaces/signallineoptions.html" class="tsd-kind-icon">Signal<wbr>Line<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/signaloptions.html" class="tsd-kind-icon">Signal<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/signaluniforms.html" class="tsd-kind-icon">Signal<wbr>Uniforms</a>
 					</li>
 					<li class=" tsd-kind-variable">
 						<a href="globals.html#defaultfragmentshader" class="tsd-kind-icon">default<wbr>Fragment<wbr>Shader</a>
