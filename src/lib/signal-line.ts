@@ -24,7 +24,7 @@ interface SignalLineOptions {
 /**
  * Represents a signal line in a three.js scene.
  */
-export default class SignalLine {
+export class SignalLine {
   /**
    * The default options for a SignalLine.
    */
