@@ -1,27 +1,6 @@
 # https://circleci.com/docs/2.0/language-javascript/
 version: 2
 jobs:
-  'node-8':
-    docker:
-      - image: circleci/node:8
-    working_directory: ~/three.signal-line
-    steps:
-      - checkout
-      # Download and cache dependencies
-      - restore_cache:
-          keys:
-            - v1-dependencies-{{ checksum "package.json" }}
-            # fallback to using the latest cache if no exact match is found
-            - v1-dependencies-
-      - run: npm install
-      - save_cache:
-          paths:
-            - node_modules
-          key: v1-dependencies-{{ checksum "package.json" }}
-      - run: npm test
-      - run: npx nyc report --reporter=lcov > coverage.lcov
-      - run: npx codecov
-      - run: npm run cov:check
   'node-latest':
     docker:
       - image: circleci/node:latest
@@ -45,5 +24,4 @@ workflows:
   version: 2
   build:
     jobs:
-      - 'node-8'
       - 'node-latest'
