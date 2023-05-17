@@ -1,12 +1,12 @@
 ----
-[![NPM version](https://img.shields.io/npm/v/typescript-starter.svg)](https://www.npmjs.com/package/three.signal-line)
+[![NPM version](https://img.shields.io/npm/v/three.signal-line.svg)](https://www.npmjs.com/package/three.signal-line)
 [![Codecov](https://img.shields.io/codecov/c/github/tankerxyz/three.signal-line.svg)](https://codecov.io/gh/tankerxyz/three.signal-line)
 [![CircleCI](https://img.shields.io/circleci/project/github/Tankerxyz/three.signal-line/master.svg)](https://circleci.com/gh/Tankerxyz/three.signal-line/tree/master)
 [![GitHub stars](https://img.shields.io/github/stars/tankerxyz/three.signal-line.svg?style=social&logo=github&label=Stars)](https://github.com/tankerxyz/three.signal-line)
 
 # Three.Signal-Line
 
-[Three.Signal-Line](https://github.com/Tankerxyz/three.signal-line) is a JavaScript package that provides a signal line component for the popular 3D rendering library, Three.js. It allows you to create animated signal lines in your Three.js scenes with customizable colors, speeds, sizes, and more.
+[three.signal-line](https://www.npmjs.com/package/three.signal-line) is a JavaScript package that provides a signal line component for the popular 3D rendering library, Three.js. It allows you to create animated signal lines in your Three.js scenes with customizable colors, speeds, sizes, and more.
 
 ## Features
 
@@ -47,43 +47,69 @@ yarn add three.signal-line
 To use Three.Signal-Line, you need to have Three.js already set up in your project. Once you have imported the required dependencies, you can create a signal line by providing the necessary options and a line geometry:
 
 ```javascript
-import * as THREE from 'three';
-import { SignalLine } from 'three.signal-line';
+import SignalLine from 'three.signal-line';
 
-// Create a line geometry for the signal line
-const lineGeometry = new THREE.Geometry();
-lineGeometry.vertices.push(new THREE.Vector3(0, 0, 0));
-lineGeometry.vertices.push(new THREE.Vector3(100, 0, 0));
+// Create a Three.js scene
+const scene = new THREE.Scene();
 
-// Define the options for the signal line
+// Create options for the SignalLine
+const options = {
+  linePath: [
+    new THREE.Vector3(0, 0, 0),
+    new THREE.Vector3(1, 1, 1),
+    new THREE.Vector3(2, 2, 2),
+  ],
+  lineType: LINE_TYPE.NORMAL,
+  materialOptions: {
+    color: 0xff0000,
+    opacity: 1.0,
+    blending: THREE.NormalBlending,
+    transparent: true,
+    depthWrite: true,
+    lineWidth: 2,
+  },
+  isDebug: false,
+};
+
+// Create a new SignalLine instance
+const signalLine = new SignalLine(options, scene);
+```
+---
+#### Sending Signals:
+To sending signals you should pass signal options by using `send` method:
+
+```javascript
+// Define the options for the signal
 const options = {
   color: '#ff0000',
   speed: 200,
   size: 30,
   backwardMoving: false,
   opacity: 0.5,
-  particleTexture: 'path/to/texture.png',
-};
+  particleTexture: 'path/to/texture.png', // not required
+}
 
-// Create a new signal line
-const signal = new SignalLine(options, lineGeometry);
+signalLine.send(options);
 
-// Add the signal line to your Three.js scene
-scene.add(signal.particleSystem);
 ```
 
-You can update the signal line's position by calling the `update` method in your animation loop:
+---
+#### Working with Labels:
+
+You can add label by using public `addLabel` method:
 
 ```javascript
-function animate() {
-  requestAnimationFrame(animate);
+// Define the options for the signal
+const options = {
+  textOptions: {
+    color: "#ff0000",
+    size: 2
+  },
+  position: "start",
+  lookAtCamera: false
+};
 
-  // Update the position of the signal line
-  signal.update();
-
-  // Render the scene
-  renderer.render(scene, camera);
-}
+signalLine.addLabel(options);
 ```
 
 ## Documentation
