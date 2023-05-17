@@ -65,12 +65,12 @@
 		<div class="col-8 col-content">
 			<div class="tsd-panel tsd-typography">
 				<hr>
-				<p><a href="https://www.npmjs.com/package/three.signal-line"><img src="https://img.shields.io/npm/v/typescript-starter.svg" alt="NPM version"></a>
+				<p><a href="https://www.npmjs.com/package/three.signal-line"><img src="https://img.shields.io/npm/v/three.signal-line.svg" alt="NPM version"></a>
 					<a href="https://codecov.io/gh/tankerxyz/three.signal-line"><img src="https://img.shields.io/codecov/c/github/tankerxyz/three.signal-line.svg" alt="Codecov"></a>
 					<a href="https://circleci.com/gh/Tankerxyz/three.signal-line/tree/master"><img src="https://img.shields.io/circleci/project/github/Tankerxyz/three.signal-line/master.svg" alt="CircleCI"></a>
 				<a href="https://github.com/tankerxyz/three.signal-line"><img src="https://img.shields.io/github/stars/tankerxyz/three.signal-line.svg?style=social&logo=github&label=Stars" alt="GitHub stars"></a></p>
 				<h1 id="three-signal-line">Three.Signal-Line</h1>
-				<p><a href="https://github.com/Tankerxyz/three.signal-line">Three.Signal-Line</a> is a JavaScript package that provides a signal line component for the popular 3D rendering library, Three.js. It allows you to create animated signal lines in your Three.js scenes with customizable colors, speeds, sizes, and more.</p>
+				<p><a href="https://www.npmjs.com/package/three.signal-line">three.signal-line</a> is a JavaScript package that provides a signal line component for the popular 3D rendering library, Three.js. It allows you to create animated signal lines in your Three.js scenes with customizable colors, speeds, sizes, and more.</p>
 				<h2 id="features">Features</h2>
 				<ul>
 					<li><strong>Animated Signal Lines</strong>: Create visually appealing animated signal lines in your Three.js scenes.</li>
@@ -97,39 +97,61 @@
 				<pre><code class="language-bash">yarn add three.signal-line</code></pre>
 				<h2 id="usage">Usage</h2>
 				<p>To use Three.Signal-Line, you need to have Three.js already set up in your project. Once you have imported the required dependencies, you can create a signal line by providing the necessary options and a line geometry:</p>
-				<pre><code class="language-javascript"><span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> THREE <span class="hljs-keyword">from</span> <span class="hljs-string">'three'</span>;
-<span class="hljs-keyword">import</span> { SignalLine } <span class="hljs-keyword">from</span> <span class="hljs-string">'three.signal-line'</span>;
+				<pre><code class="language-javascript"><span class="hljs-keyword">import</span> SignalLine <span class="hljs-keyword">from</span> <span class="hljs-string">'three.signal-line'</span>;
 
-<span class="hljs-comment">// Create a line geometry for the signal line</span>
-<span class="hljs-keyword">const</span> lineGeometry = <span class="hljs-keyword">new</span> THREE.Geometry();
-lineGeometry.vertices.push(<span class="hljs-keyword">new</span> THREE.Vector3(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>));
-lineGeometry.vertices.push(<span class="hljs-keyword">new</span> THREE.Vector3(<span class="hljs-number">100</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>));
+<span class="hljs-comment">// Create a Three.js scene</span>
+<span class="hljs-keyword">const</span> scene = <span class="hljs-keyword">new</span> THREE.Scene();
 
-<span class="hljs-comment">// Define the options for the signal line</span>
+<span class="hljs-comment">// Create options for the SignalLine</span>
+<span class="hljs-keyword">const</span> options = {
+  <span class="hljs-attr">linePath</span>: [
+    <span class="hljs-keyword">new</span> THREE.Vector3(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>),
+    <span class="hljs-keyword">new</span> THREE.Vector3(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>),
+    <span class="hljs-keyword">new</span> THREE.Vector3(<span class="hljs-number">2</span>, <span class="hljs-number">2</span>, <span class="hljs-number">2</span>),
+  ],
+  <span class="hljs-attr">lineType</span>: LINE_TYPE.NORMAL,
+  <span class="hljs-attr">materialOptions</span>: {
+    <span class="hljs-attr">color</span>: <span class="hljs-number">0xff0000</span>,
+    <span class="hljs-attr">opacity</span>: <span class="hljs-number">1.0</span>,
+    <span class="hljs-attr">blending</span>: THREE.NormalBlending,
+    <span class="hljs-attr">transparent</span>: <span class="hljs-literal">true</span>,
+    <span class="hljs-attr">depthWrite</span>: <span class="hljs-literal">true</span>,
+    <span class="hljs-attr">lineWidth</span>: <span class="hljs-number">2</span>,
+  },
+  <span class="hljs-attr">isDebug</span>: <span class="hljs-literal">false</span>,
+};
+
+<span class="hljs-comment">// Create a new SignalLine instance</span>
+<span class="hljs-keyword">const</span> signalLine = <span class="hljs-keyword">new</span> SignalLine(options, scene);</code></pre>
+				<hr>
+				<h4 id="sending-signals-">Sending Signals:</h4>
+				<p>To sending signals you should pass signal options by using <code>send</code> method:</p>
+				<pre><code class="language-javascript"><span class="hljs-comment">// Define the options for the signal</span>
 <span class="hljs-keyword">const</span> options = {
   <span class="hljs-attr">color</span>: <span class="hljs-string">'#ff0000'</span>,
   <span class="hljs-attr">speed</span>: <span class="hljs-number">200</span>,
   <span class="hljs-attr">size</span>: <span class="hljs-number">30</span>,
   <span class="hljs-attr">backwardMoving</span>: <span class="hljs-literal">false</span>,
   <span class="hljs-attr">opacity</span>: <span class="hljs-number">0.5</span>,
-  <span class="hljs-attr">particleTexture</span>: <span class="hljs-string">'path/to/texture.png'</span>,
+  <span class="hljs-attr">particleTexture</span>: <span class="hljs-string">'path/to/texture.png'</span>, <span class="hljs-comment">// not required</span>
+}
+
+signalLine.send(options);
+</code></pre>
+				<hr>
+				<h4 id="working-with-labels-">Working with Labels:</h4>
+				<p>You can add label by using public <code>addLabel</code> method:</p>
+				<pre><code class="language-javascript"><span class="hljs-comment">// Define the options for the signal</span>
+<span class="hljs-keyword">const</span> options = {
+  <span class="hljs-attr">textOptions</span>: {
+    <span class="hljs-attr">color</span>: <span class="hljs-string">"#ff0000"</span>,
+    <span class="hljs-attr">size</span>: <span class="hljs-number">2</span>
+  },
+  <span class="hljs-attr">position</span>: <span class="hljs-string">"start"</span>,
+  <span class="hljs-attr">lookAtCamera</span>: <span class="hljs-literal">false</span>
 };
 
-<span class="hljs-comment">// Create a new signal line</span>
-<span class="hljs-keyword">const</span> signal = <span class="hljs-keyword">new</span> SignalLine(options, lineGeometry);
-
-<span class="hljs-comment">// Add the signal line to your Three.js scene</span>
-scene.add(signal.particleSystem);</code></pre>
-				<p>You can update the signal line&#39;s position by calling the <code>update</code> method in your animation loop:</p>
-				<pre><code class="language-javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">animate</span>(<span class="hljs-params"></span>) </span>{
-  requestAnimationFrame(animate);
-
-  <span class="hljs-comment">// Update the position of the signal line</span>
-  signal.update();
-
-  <span class="hljs-comment">// Render the scene</span>
-  renderer.render(scene, camera);
-}</code></pre>
+signalLine.addLabel(options);</code></pre>
 				<h2 id="documentation">Documentation</h2>
 				<p>You can find the full documentation on the <a href="https://tankerxyz.github.io/three.signal-line">website</a>.</p>
 				<h2 id="examples">Examples</h2>
@@ -185,12 +207,6 @@ scene.add(signal.particleSystem);</code></pre>
 					</li>
 					<li class=" tsd-kind-variable">
 						<a href="globals.html#particletexturebase64" class="tsd-kind-icon">particle<wbr>Texture<wbr>Base64</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="globals.html#double" class="tsd-kind-icon">double</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="globals.html#power" class="tsd-kind-icon">power</a>
 					</li>
 				</ul>
 			</nav>
