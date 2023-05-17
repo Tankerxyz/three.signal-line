@@ -2,34 +2,67 @@ import THREE from 'three';
 
 import { LINE_TYPE, POSITION } from "../constants";
 
+/**
+ * The options for the Label constructor
+ */
+export interface LabelOptions {
+  textOptions: {
+    color: string;
+    text: string;
+    size: number;
+    _3d: boolean;
+  };
+  lineType: LINE_TYPE;
+  positionOffsetY: number;
+  rotationOffsetY: number | null;
+  camera: THREE.Camera | null;
+  position: POSITION;
+}
 
 /**
  * Represents a Label for @{SignalLine}.
  * Usage only from a SignalLine class.
- * @constructor
- * @param{LabelOptions} options - The options for line.
- * @param{THREE.Geometry} lineGeometry - Line Geometry object.
  */
 export class Label {
 
-  public static defaultOptions = {
+  /**
+   * Default options for the Label constructor
+   */
+  public static defaultOptions: LabelOptions = {
     textOptions: {
       color: "red",
       text: "label",
       size: 5,
       _3d: false
     },
+    lineType: LINE_TYPE.NORMAL,
     positionOffsetY: 2,
     rotationOffsetY: null, // float
     camera: null, // THREE.Camera
     position: POSITION.CENTER
   }
 
-  private lineGeometry: any;
-  private options: any;
+  /**
+   * The line geometry object
+   */
+  private lineGeometry: THREE.Geometry;
+
+  /**
+   * The label options
+   */
+  private options: LabelOptions;
+
+  /**
+   * The DText object for the label
+   */
   public text: THREE.DText;
 
-  constructor(options, lineGeometry) {
+  /**
+   * Creates a new Label object
+   * @param options - The options for the label
+   * @param lineGeometry - The line geometry object
+   */
+  constructor(options: LabelOptions, lineGeometry: THREE.Geometry) {
     this.options = {
       ...Label.defaultOptions,
       ...options,
@@ -45,7 +78,10 @@ export class Label {
     this.update = this.update.bind(this);
   }
 
-  public initLabel() {
+  /**
+   * Initializes the label object
+   */
+  public initLabel(): void {
     const vertices = this.lineGeometry.vertices;
     let pointA;
     let pointB;
@@ -96,7 +132,11 @@ export class Label {
     this.recenter();
   }
 
-  public getLabelPositionPoint() {
+  /**
+   * Returns the position point of the label
+   * @returns The position point of the label
+   */
+  public getLabelPositionPoint(): THREE.Vector3 {
     const vertices = this.lineGeometry.vertices;
 
     switch (this.options.position) {
@@ -112,7 +152,10 @@ export class Label {
     }
   }
 
-  private recenter() {
+  /**
+   * Recenters the label position
+   */
+  private recenter(): void {
     const posPoint = this.getLabelPositionPoint();
     const boxV = new THREE.Vector3();
     const halfBoxHeight =
@@ -128,28 +171,46 @@ export class Label {
     }
   }
 
-  public setFont(font) {
+  /**
+   * Sets the font for the label
+   * @param font - The font to be set
+   */
+  public setFont(font: any): void {
     this.text.setFont(font);
     this.recenter();
   }
 
-  public setText(text) {
+  /**
+   * Sets the text for the label
+   * @param text - The text to be set
+   */
+  public setText(text: string): void {
     this.text.setText(text);
     this.recenter();
   }
 
-  public setSize(size) {
+  /**
+   * Sets the size for the label
+   * @param size - The size to be set
+   */
+  public setSize(size: number): void {
     this.text.setSize(size);
     this.recenter();
   }
 
-  public dispose() {
+  /**
+   * Disposes the label object
+   */
+  public dispose(): void {
     this.text.geometry.dispose();
     this.text.material.dispose();
     this.text.parent.remove(this.text);
   }
 
-  public update() {
+  /**
+   * Updates the label object
+   */
+  public update(): void {
     if (this.options.camera) {
       this.text.lookAt(this.options.camera.position);
     }

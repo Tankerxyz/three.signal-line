@@ -6,65 +6,88 @@ import {
 } from "../constants";
 
 /**
- * Represents a signal for the signal line.
- * Usage only from a SignalLine class.
- * @constructor
- * @param{SignalOptions} options - The options for signal.
- * @param{THREE.Geometry} lineGeometry - Line Geometry object.
+ * Options for the Signal class.
+ */
+export interface SignalOptions {
+  color: string;
+  speed: number;
+  size: number;
+  backwardMoving: boolean;
+  opacity: number;
+  particleTexture?: string;
+}
+
+export interface SignalUniforms {
+  amplitude: { type: 'f'; value: number };
+  pointColor: { type: 'c'; value: THREE.Color };
+  opacity: { type: 'f'; value: number };
+  texture: { value: THREE.Texture };
+}
+
+/**
+ * Represents a signal in a three.js scene.
  */
 export class Signal {
-
-  public static defaultOptions = {
+  /**
+   * Default options for the Signal class.
+   */
+  private static defaultOptions: SignalOptions = {
     color: "#220099",
     speed: 250,
     size: 40,
     backwardMoving: false,
-    opacity: 1.0
+    opacity: 1.0,
   };
 
-  public static defaultUniforms = {
+  /**
+   * Default uniforms for the Signal class.
+   */
+  private static defaultUniforms: SignalUniforms = {
     amplitude: { type: "f", value: 1.0 },
     pointColor: { type: "c", value: new THREE.Color(0xffffff) },
     opacity: { type: "f", value: 1.0 },
     texture: {
       value: new THREE.TextureLoader().load(particleTextureBase64)
     }
-  }
-  private options: any;
-  private lineGeometry: any;
-  private isEnded: boolean;
+  };
+
+  private options: SignalOptions;
+  private lineGeometry: THREE.Geometry;
+  private geometry: THREE.BufferGeometry;
+
   private ticksPerSecond: number;
   private backwardMoving: boolean;
   private lerp: number;
   private index: number;
-  public particleSystem: any;
-  private geometry: THREE.BufferGeometry;
   private lerpStep: number;
 
+  public particleSystem: THREE.Points;
+  public isEnded: boolean;
 
-  constructor(options, lineGeometry) {
-    this.options = {
-      ...Signal.defaultOptions,
-      ...options
-    };
+  /**
+   * Creates a new Signal instance.
+   * @param options - The options for the Signal.
+   * @param lineGeometry - The line geometry for the Signal.
+   */
+  constructor(options: SignalOptions, lineGeometry: any) {
+    this.options = { ...Signal.defaultOptions, ...options };
     this.lineGeometry = lineGeometry;
     this.isEnded = false;
     this.ticksPerSecond = 60;
-    this.backwardMoving = !!this.options.backwardMoving;
+    this.backwardMoving = this.options.backwardMoving;
     this.lerp = 0;
-
-    if (this.backwardMoving) {
-      this.index = this.lineGeometry.vertices.length - 1;
-    } else {
-      this.index = 0;
-    }
+    this.index = this.backwardMoving
+      ? this.lineGeometry.vertices.length - 1
+      : 0;
 
     this.initParticle();
-
     this.update = this.update.bind(this);
   }
 
-  public initParticle() {
+  /**
+   * Initializes the particle system.
+   */
+  private initParticle() {
     const vertexShader = defaultVertexShader;
     const fragmentShader = defaultFragmentShader;
     const uniforms = { ...Signal.defaultUniforms };
@@ -85,29 +108,28 @@ export class Signal {
       transparent: true,
       opacity: this.options.opacity,
       size: this.options.size,
-      color: new THREE.Color(this.options.color)
+      color: new THREE.Color(this.options.color),
     });
 
     const geometry = new THREE.BufferGeometry();
+    const { curPoint, r, g, b } = this.getCurPointAndColor();
 
-    const {
-      curPoint: { x, y, z }
-    } = this.getCurAndNextPoint();
-    const { r, g, b } = new THREE.Color(this.options.color);
-
-    const positions = [x, y, z];
+    const positions = [curPoint.x, curPoint.y, curPoint.z];
     const colors = [r, g, b];
     const sizes = [this.options.size];
 
-    geometry.addAttribute(
+    geometry.setAttribute(
       "position",
       new THREE.Float32BufferAttribute(positions, 3).setDynamic(true)
     );
-    geometry.addAttribute(
+    geometry.setAttribute(
       "customColor",
       new THREE.Float32BufferAttribute(colors, 3)
     );
-    geometry.addAttribute("size", new THREE.Float32BufferAttribute(sizes, 1));
+    geometry.setAttribute(
+      "size",
+      new THREE.Float32BufferAttribute(sizes, 1)
+    );
 
     this.geometry = geometry;
     this.particleSystem = new THREE.Points(geometry, shaderMaterial);
@@ -115,27 +137,42 @@ export class Signal {
     this.calculateNextLerpStep();
   }
 
-  public getNextIndex() {
-    return this.backwardMoving ? this.index - 1 : this.index + 1;
-  }
-
-  public getCurAndNextPoint() {
+  /**
+   * Gets the current and next point of the line geometry.
+   * @returns An object containing the current and next points.
+   */
+  private getCurPointAndColor() {
     const vertices = this.lineGeometry.vertices;
     const curPoint = vertices[this.index].clone();
     const nextPoint = vertices[this.getNextIndex()].clone();
+    const { r, g, b } = new THREE.Color(this.options.color);
 
-    return { curPoint, nextPoint };
+    return { curPoint, nextPoint, r, g, b };
   }
 
-  public calculateNextLerpStep() {
-    const { curPoint, nextPoint } = this.getCurAndNextPoint();
+  /**
+   * Calculates the next Lerp step between the current and next points.
+   */
+  private calculateNextLerpStep() {
+    const { curPoint, nextPoint } = this.getCurPointAndColor();
     const lineLength = curPoint.distanceTo(nextPoint);
     const predictionTime = lineLength / this.options.speed;
 
     this.lerpStep = 1 / (predictionTime * this.ticksPerSecond);
   }
 
-  public updateCurIndex() {
+  /**
+   * Gets the next index in the sequence.
+   * @returns The next index.
+   */
+  private getNextIndex(): number {
+    return this.backwardMoving ? this.index - 1 : this.index + 1;
+  }
+
+  /**
+   * Updates the current index based on the direction of movement.
+   */
+  private updateCurIndex() {
     if (this.backwardMoving) {
       this.index--;
     } else {
@@ -143,7 +180,11 @@ export class Signal {
     }
   }
 
-  public isSignalDone() {
+  /**
+   * Checks if the signal is done moving.
+   * @returns True if the signal is done moving, false otherwise.
+   */
+  private isSignalDone() {
     if (this.backwardMoving) {
       return this.index <= 0;
     } else {
@@ -151,18 +192,25 @@ export class Signal {
     }
   }
 
+  /**
+   * Updates the position of the object based on the current state of the animation.
+   * If the animation has ended, this method disposes of the object and sets the isEnded flag to true.
+   */
   public update() {
-    if (this.isEnded) { return; }
-    const position = this.geometry.attributes.position;
+    if (this.isEnded) {
+      return;
+    }
+
+    const position = this.geometry.getAttribute("position") as THREE.BufferAttribute;
 
     this.lerp += this.lerpStep;
+
     if (this.lerp >= 1) {
       this.lerp = 0;
       this.updateCurIndex();
 
       if (this.isSignalDone()) {
         this.dispose();
-
         this.isEnded = true;
         return;
       }
@@ -170,16 +218,20 @@ export class Signal {
       this.calculateNextLerpStep();
     }
 
-    const { curPoint, nextPoint } = this.getCurAndNextPoint();
+    const { curPoint, nextPoint } = this.getCurPointAndColor();
     const { x, y, z } = curPoint.lerp(nextPoint, this.lerp);
-    position.setXYZ(0, x, y, z);
 
+    position.setXYZ(0, x, y, z);
     position.needsUpdate = true;
   }
 
+  /**
+   * Disposes of the particle system and its associated resources.
+   */
   public dispose() {
     this.particleSystem.geometry.dispose();
     this.particleSystem.material.dispose();
     this.particleSystem.parent.remove(this.particleSystem);
   }
 }
+

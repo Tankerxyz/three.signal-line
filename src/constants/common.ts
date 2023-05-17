@@ -4,26 +4,25 @@ export const defaultFragmentShader = `
   uniform sampler2D texture;
   uniform float opacity;
   varying vec3 vColor;
+
   void main() {
     float x = 25.0;
 
-  // Map value to 0..1 domain
-  // (no need if x is already in 0..1 range)
-  float min = 10.0;
-  float max = 100.0;
-  float t = range(min, max, x);
+    // Map value to 0..1 domain
+    // (no need if x is already in 0..1 range)
+    float min = 10.0;
+    float max = 100.0;
+    float t = range(min, max, x);
 
-  // Now linear interpolate to new domain
-  float outMin = 0.25;
-  float outMax = 0.75;
-  float result = mix(outMin, outMax, t);
+    // Now linear interpolate to new domain
+    float outMin = 0.25;
+    float outMax = 0.75;
+    float result = mix(outMin, outMax, t);
 
-  // Or, linear scale from one color to another
-  vec3 colorA = vec3(0.15, 0.5, 1.0);
-  vec3 colorB = vec3(0.5, 0.0, 0.25);
-  vec3 color = mix(colorA, colorB, t);
-
-
+    // Or, linear scale from one color to another
+    vec3 colorA = vec3(0.15, 0.5, 1.0);
+    vec3 colorB = vec3(0.5, 0.0, 0.25);
+    vec3 color = mix(colorA, colorB, t);
 
     gl_FragColor = vec4( color, 1.0 );
     gl_FragColor = gl_FragColor * texture2D( texture, gl_PointCoord );
@@ -33,25 +32,18 @@ export const defaultFragmentShader = `
   }
 `;
 
-/**
- * Represents a default Vertex Shader.
- * Usage only from a @{Signal} class.
- * @privateRemarks
- * @sealed
- */
 export const defaultVertexShader = `
   #pragma glslify: range = require('glsl-range');
   uniform float amplitude;
   attribute float size;
   varying vec3 vColor;
   attribute vec3 customColor;
+
   void main() {
     vColor = customColor;
     vec4 mvPosition = modelViewMatrix * vec4( position, 1.0 );
     gl_PointSize = size;
     gl_Position = projectionMatrix * mvPosition;
-
-
   }
 `;
 
